@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<!-- 引用thymeleaf，可以在其他标签里面使用th:*这样的语法 -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>用户管理</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="../../static/easyui/themes/default/easyui.css" th:href="@{easyui/themes/default/easyui.css}"></link>
+    <link rel="stylesheet" type="text/css" href="../../static/easyui/themes/icon.css" th:href="@{easyui/themes/icon.css}"></link>
+    <script type="text/javascript" src="../../static/easyui/jquery.min.js" th:src="@{easyui/jquery.min.js}"></script>
+    <script type="text/javascript" src="../../static/easyui/jquery.easyui.min.js" th:src="@{easyui/jquery.easyui.min.js}"></script>
+    <script type="text/javascript" src="../../static/js/user/user.js" th:src="@{js/user/user.js}"></script>
+</head>
+<body>
+	<table border="1">
+       <thead>
+           <th>用户管理</th>
+       </thead>
+       <tbody>
+       		<tr>
+       			<td>姓名</td>
+       			<td>年龄</td>
+       			<td>手机号</td>
+       			<td>地址</td>
+       		</tr>
+            <tr th:each="users:${user}">
+                <td th:text="${users.name}"></td>
+                <td th:text="${users.age}"></td>
+                <td th:text="${users.phone}"></td>
+                <td th:text="${users.address}"></td>
+            </tr>
+       </tbody>
+   </table>
+   
+   <table id="dg" title="用户管理" style="width:700px;height:250px"
+   		data-options="rownumbers:true,singleSelect:true,pagination:true ">
+        <!-- <thead>
+            <tr>
+                <th data-options="field:'name',width:80">姓名</th>
+                <th data-options="field:'age',width:100">年龄</th>
+                <th data-options="field:'phone',width:80,align:'right'">手机号</th>
+                <th data-options="field:'address',width:80,align:'right'">地址</th>
+            </tr>
+        </thead> -->
+    </table>
+    
+	
+</body>
+</html>

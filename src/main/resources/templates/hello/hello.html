@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<!-- 引用thymeleaf，可以在其他标签里面使用th:*这样的语法 -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<!-- 获取变量值用$符号,对于javaBean的话使用变量名.属性名方式获取 -->
+	<p th:text="'Hello, ' + ${name} + '!'" ></p>
+	<span th:text="'Welcome to our application, ' + ${name} + '!'"></span><br/>
+	<!-- 可以写成如下 -->
+	<span th:text="|Welcome to our application, ${name}!|"></span><br/>
+	<a th:href="@{http://www.sogou.com}">绝对路径</a><br/>
+	<a th:href="@{/}">相对路径</a><br/>
+	<a th:href="@{css/bootstrap.min.css}">Content路径,默认访问static下的css文件夹</a><br/>
+</body>
+</html>
